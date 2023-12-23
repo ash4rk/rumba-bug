@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/images/interioir.png" type="Texture" id=1]
+[ext_resource path="res://scenes/rumba.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/dust.tscn" type="PackedScene" id=3]
 
 [sub_resource type="TileSet" id=1]
 1/name = "interioir.png 1"
@@ -158,11 +160,1234 @@
 13/shapes = [  ]
 13/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 77, 204 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 77, 204 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 296.25, 63 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 95.8125, 47.75 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 47, 3 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 93.5, 3 )
+
 [node name="Room" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 480.0, 96.0 ],
+"_edit_vertical_guides_": [ 630.0, 91.0 ]
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 48, 48 )
-cell_quadrant_size = 15
 format = 1
-tile_data = PoolIntArray( 131073, 13, 0, 131074, 6, 0, 131075, 7, 0, 131076, 6, 0, 131077, 7, 0, 131078, 8, 0, 131080, 7, 0, 131081, 6, 0, 131082, 7, 0, 131083, 6, 0, 131084, 7, 0, 131085, 536870925, 0, 196609, 13, 0, 196610, 4, 0, 196611, 5, 0, 196612, 4, 0, 196613, 5, 0, 196616, 4, 0, 196617, 5, 0, 196618, 4, 0, 196619, 5, 0, 196620, 4, 0, 196621, 536870925, 0, 262145, 13, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 536870925, 0, 327681, 13, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 536870925, 0, 393217, 13, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 536870925, 0, 458753, 12, 0, 458754, 536870921, 0, 458755, 9, 0, 458756, 9, 0, 458757, 10, 0, 458758, 1, 0, 458759, 11, 0, 458760, 9, 0, 458761, 9, 0, 458762, 9, 0, 458763, 9, 0, 458764, 9, 0, 458765, 536870924, 0, 524289, 13, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 536870925, 0, 589825, 12, 0, 589826, 536870921, 0, 589827, 536870921, 0, 589828, 536870921, 0, 589829, 536870921, 0, 589830, 536870921, 0, 589831, 536870921, 0, 589832, 536870921, 0, 589833, 536870924, 0 )
+tile_data = PoolIntArray( 131073, 13, 0, 131074, 6, 0, 131075, 7, 0, 131076, 6, 0, 131077, 7, 0, 131078, 8, 0, 131080, 6, 0, 131081, 6, 0, 131082, 7, 0, 131083, 6, 0, 131084, 7, 0, 131085, 536870925, 0, 196609, 13, 0, 196610, 4, 0, 196611, 5, 0, 196612, 4, 0, 196613, 5, 0, 196616, 4, 0, 196617, 5, 0, 196618, 4, 0, 196619, 5, 0, 196620, 4, 0, 196621, 536870925, 0, 262145, 13, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 536870925, 0, 327681, 13, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 536870925, 0, 393217, 13, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 536870925, 0, 458753, 12, 0, 458754, 9, 0, 458755, 9, 0, 458756, 9, 0, 458757, 10, 0, 458758, 1, 0, 458759, 11, 0, 458760, 9, 0, 458761, 9, 0, 458762, 9, 0, 458763, 9, 0, 458764, 9, 0, 458765, 536870924, 0, 524289, 13, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 536870925, 0, 589825, 12, 0, 589826, 9, 0, 589827, 9, 0, 589828, 9, 0, 589829, 9, 0, 589830, 9, 0, 589831, 9, 0, 589832, 9, 0, 589833, 536870924, 0 )
+
+[node name="Dusts" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.52549 )
+
+[node name="Dust" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 109, 204 )
+
+[node name="Dust2" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 133, 204 )
+
+[node name="Dust3" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 156, 206 )
+
+[node name="Dust4" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 141, 227 )
+
+[node name="Dust5" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 106, 247 )
+
+[node name="Dust6" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 148, 251 )
+
+[node name="Dust7" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 121, 230 )
+
+[node name="Dust8" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 167, 234 )
+rotation = 0.198353
+
+[node name="Dust9" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 191, 234 )
+rotation = 0.198353
+
+[node name="Dust10" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 214, 236 )
+rotation = 0.198353
+
+[node name="Dust11" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 199, 257 )
+rotation = 0.198353
+
+[node name="Dust12" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 164, 277 )
+rotation = 0.198353
+
+[node name="Dust13" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 206, 281 )
+rotation = 0.198353
+
+[node name="Dust14" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 179, 260 )
+rotation = 0.198353
+
+[node name="Dust15" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 221, 261 )
+rotation = 0.198353
+
+[node name="Dust16" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 245, 261 )
+rotation = 0.198353
+
+[node name="Dust17" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 268, 263 )
+rotation = 0.198353
+
+[node name="Dust18" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 253, 284 )
+rotation = 0.198353
+
+[node name="Dust19" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 218, 304 )
+rotation = 0.198353
+
+[node name="Dust20" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 260, 308 )
+rotation = 0.198353
+
+[node name="Dust29" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 186, 281 )
+rotation = 0.198353
+
+[node name="Dust30" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 179, 207 )
+rotation = 0.198353
+
+[node name="Dust31" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 128, 252 )
+rotation = 0.198353
+
+[node name="Dust32" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 109, 270 )
+rotation = 0.198353
+
+[node name="Dust33" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 105, 227 )
+rotation = 0.198353
+
+[node name="Dust34" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 130, 273 )
+rotation = 0.198353
+
+[node name="Dust35" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 149, 274 )
+rotation = 0.198353
+
+[node name="Dust36" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 122, 296 )
+rotation = 0.198353
+
+[node name="Dust37" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 104, 293 )
+rotation = 0.198353
+
+[node name="Dust38" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 132, 318 )
+rotation = 0.198353
+
+[node name="Dust39" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 105, 319 )
+rotation = 0.198353
+
+[node name="Dust40" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 119, 338 )
+rotation = 0.198353
+
+[node name="Dust41" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 103, 341 )
+rotation = 0.198353
+
+[node name="Dust42" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 104, 360 )
+rotation = 0.198353
+
+[node name="Dust43" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 125, 359 )
+rotation = 0.198353
+
+[node name="Dust44" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 130, 373 )
+rotation = 0.198353
+
+[node name="Dust109" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 147, 371 )
+rotation = 0.198353
+
+[node name="Dust110" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 171, 371 )
+rotation = 0.198353
+
+[node name="Dust111" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 218, 371 )
+rotation = 0.198353
+
+[node name="Dust112" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 255, 349 )
+rotation = 0.198353
+
+[node name="Dust113" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 261, 367 )
+rotation = 0.198353
+
+[node name="Dust114" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 266, 329 )
+rotation = 0.198353
+
+[node name="Dust115" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 266, 329 )
+rotation = 0.198353
+
+[node name="Dust45" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 105, 375 )
+rotation = 0.198353
+
+[node name="Dust21" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 233, 287 )
+rotation = 0.198353
+
+[node name="Dust22" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 147, 300 )
+rotation = 0.198353
+
+[node name="Dust23" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 171, 300 )
+rotation = 0.198353
+
+[node name="Dust24" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 194, 302 )
+rotation = 0.198353
+
+[node name="Dust25" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 179, 323 )
+rotation = 0.198353
+
+[node name="Dust26" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 144, 343 )
+rotation = 0.198353
+
+[node name="Dust27" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 186, 347 )
+rotation = 0.198353
+
+[node name="Dust28" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 159, 326 )
+rotation = 0.198353
+
+[node name="Dust46" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 284, 200 )
+
+[node name="Dust47" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 308, 200 )
+
+[node name="Dust48" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 331, 202 )
+
+[node name="Dust49" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 316, 223 )
+
+[node name="Dust50" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 281, 243 )
+
+[node name="Dust51" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 323, 247 )
+
+[node name="Dust52" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 296, 226 )
+
+[node name="Dust53" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 339, 234 )
+rotation = 0.198353
+
+[node name="Dust54" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 363, 234 )
+rotation = 0.198353
+
+[node name="Dust55" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 386, 236 )
+rotation = 0.198353
+
+[node name="Dust56" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 371, 257 )
+rotation = 0.198353
+
+[node name="Dust57" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 336, 277 )
+rotation = 0.198353
+
+[node name="Dust58" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 378, 281 )
+rotation = 0.198353
+
+[node name="Dust59" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 351, 260 )
+rotation = 0.198353
+
+[node name="Dust60" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 393, 259 )
+rotation = -2.55152
+
+[node name="Dust61" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 417, 259 )
+rotation = -2.55152
+
+[node name="Dust62" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 389, 201 )
+rotation = -2.55152
+
+[node name="Dust63" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 370, 318 )
+rotation = -2.55152
+
+[node name="Dust64" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 390, 304 )
+rotation = 0.198353
+
+[node name="Dust65" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 343, 367 )
+rotation = -2.55152
+
+[node name="Dust66" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 358, 281 )
+rotation = 0.198353
+
+[node name="Dust67" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 351, 207 )
+rotation = 0.198353
+
+[node name="Dust68" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 302, 245 )
+rotation = 0.198353
+
+[node name="Dust69" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 284, 266 )
+rotation = 0.198353
+
+[node name="Dust70" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 280, 223 )
+rotation = 0.198353
+
+[node name="Dust71" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 305, 269 )
+rotation = 0.198353
+
+[node name="Dust72" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 324, 270 )
+rotation = 0.198353
+
+[node name="Dust73" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 297, 292 )
+rotation = 0.198353
+
+[node name="Dust74" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 279, 289 )
+rotation = 0.198353
+
+[node name="Dust75" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 307, 314 )
+rotation = 0.198353
+
+[node name="Dust76" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 280, 315 )
+rotation = 0.198353
+
+[node name="Dust77" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 294, 334 )
+rotation = 0.198353
+
+[node name="Dust78" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 243, 304 )
+rotation = 0.198353
+
+[node name="Dust79" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 279, 356 )
+rotation = 0.198353
+
+[node name="Dust80" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 300, 355 )
+rotation = 0.198353
+
+[node name="Dust116" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 215, 205 )
+rotation = 0.198353
+
+[node name="Dust81" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 237, 204 )
+rotation = 0.198353
+
+[node name="Dust82" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 258, 201 )
+rotation = 0.198353
+
+[node name="Dust83" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 380, 340 )
+rotation = -2.55152
+
+[node name="Dust84" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 322, 296 )
+rotation = 0.198353
+
+[node name="Dust85" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 343, 300 )
+rotation = 0.198353
+
+[node name="Dust86" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 366, 302 )
+rotation = 0.198353
+
+[node name="Dust87" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 351, 323 )
+rotation = 0.198353
+
+[node name="Dust88" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 319, 339 )
+rotation = 0.198353
+
+[node name="Dust89" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 358, 347 )
+rotation = 0.198353
+
+[node name="Dust90" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 334, 322 )
+rotation = 0.198353
+
+[node name="Dust91" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 166, 349 )
+rotation = 0.198353
+
+[node name="Dust92" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 286, 311 )
+rotation = 0.198353
+
+[node name="Dust93" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 200, 324 )
+rotation = 0.198353
+
+[node name="Dust94" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 224, 324 )
+rotation = 0.198353
+
+[node name="Dust95" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 247, 326 )
+rotation = 0.198353
+
+[node name="Dust96" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 232, 347 )
+rotation = 0.198353
+
+[node name="Dust97" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 197, 367 )
+rotation = 0.198353
+
+[node name="Dust98" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 239, 371 )
+rotation = 0.198353
+
+[node name="Dust99" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 212, 350 )
+rotation = 0.198353
+
+[node name="Dust100" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 202, 211 )
+rotation = 0.198353
+
+[node name="Dust101" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 307, 202 )
+rotation = 0.198353
+
+[node name="Dust102" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 221, 215 )
+rotation = 0.198353
+
+[node name="Dust103" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 245, 215 )
+rotation = 0.198353
+
+[node name="Dust104" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 268, 217 )
+rotation = 0.198353
+
+[node name="Dust105" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 253, 238 )
+rotation = 0.198353
+
+[node name="Dust106" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 218, 258 )
+rotation = 0.198353
+
+[node name="Dust107" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 260, 262 )
+rotation = 0.198353
+
+[node name="Dust108" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 233, 241 )
+rotation = 0.198353
+
+[node name="Dust117" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 373, 205 )
+rotation = 0.198353
+
+[node name="Dust118" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 293, 367 )
+rotation = -2.55152
+
+[node name="Dust119" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 316, 369 )
+rotation = -2.55152
+
+[node name="Dust120" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 301, 390 )
+rotation = -2.55152
+
+[node name="Dust121" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 413, 300 )
+rotation = -2.55152
+
+[node name="Dust122" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 412, 250 )
+rotation = -2.55152
+
+[node name="Dust123" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 385, 231 )
+rotation = 0.198353
+
+[node name="Dust125" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 363, 234 )
+rotation = 0.198353
+
+[node name="Dust126" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 386, 236 )
+rotation = 0.198353
+
+[node name="Dust127" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 371, 257 )
+rotation = 0.198353
+
+[node name="Dust128" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 336, 277 )
+rotation = 0.198353
+
+[node name="Dust129" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 327, 391 )
+rotation = 0.198353
+
+[node name="Dust130" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 351, 260 )
+rotation = 0.198353
+
+[node name="Dust131" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 393, 259 )
+rotation = -2.55152
+
+[node name="Dust132" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 393, 324 )
+rotation = -2.55152
+
+[node name="Dust133" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 398, 281 )
+rotation = -2.55152
+
+[node name="Dust134" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 366, 364 )
+rotation = -2.55152
+
+[node name="Dust135" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 390, 304 )
+rotation = 0.198353
+
+[node name="Dust136" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 336, 348 )
+rotation = -2.55152
+
+[node name="Dust137" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 358, 281 )
+rotation = 0.198353
+
+[node name="Dust138" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 351, 207 )
+rotation = 0.198353
+
+[node name="Dust139" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 384, 363 )
+rotation = -2.55152
+
+[node name="Dust140" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 366, 396 )
+rotation = 0.198353
+
+[node name="Dust141" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 366, 302 )
+rotation = 0.198353
+
+[node name="Dust142" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 351, 323 )
+rotation = 0.198353
+
+[node name="Dust143" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 358, 347 )
+rotation = 0.198353
+
+[node name="Dust144" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 373, 205 )
+rotation = 0.198353
+
+[node name="Dust145" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 418, 366 )
+rotation = -2.55152
+
+[node name="Dust146" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 316, 369 )
+rotation = -2.55152
+
+[node name="Dust147" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 401, 345 )
+rotation = -2.55152
+
+[node name="Dust148" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 403, 367 )
+rotation = -2.55152
+
+[node name="Dust149" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 399, 221 )
+rotation = -2.55152
+
+[node name="Dust150" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 385, 231 )
+rotation = 0.198353
+
+[node name="Dust151" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 416, 199 )
+
+[node name="Dust152" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 439, 201 )
+
+[node name="Dust153" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 424, 222 )
+
+[node name="Dust154" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 431, 246 )
+
+[node name="Dust155" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 404, 225 )
+
+[node name="Dust156" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 447, 233 )
+rotation = 0.198353
+
+[node name="Dust157" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 471, 233 )
+rotation = 0.198353
+
+[node name="Dust158" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 494, 235 )
+rotation = 0.198353
+
+[node name="Dust159" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 479, 256 )
+rotation = 0.198353
+
+[node name="Dust160" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 444, 276 )
+rotation = 0.198353
+
+[node name="Dust161" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 486, 280 )
+rotation = 0.198353
+
+[node name="Dust162" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 459, 259 )
+rotation = 0.198353
+
+[node name="Dust163" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 501, 258 )
+rotation = -2.55152
+
+[node name="Dust164" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 525, 258 )
+rotation = -2.55152
+
+[node name="Dust165" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 497, 200 )
+rotation = -2.55152
+
+[node name="Dust166" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 478, 317 )
+rotation = -2.55152
+
+[node name="Dust167" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 498, 303 )
+rotation = 0.198353
+
+[node name="Dust168" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 451, 366 )
+rotation = -2.55152
+
+[node name="Dust169" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 466, 280 )
+rotation = 0.198353
+
+[node name="Dust170" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 459, 206 )
+rotation = 0.198353
+
+[node name="Dust171" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 410, 244 )
+rotation = 0.198353
+
+[node name="Dust172" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 413, 268 )
+rotation = 0.198353
+
+[node name="Dust173" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 432, 269 )
+rotation = 0.198353
+
+[node name="Dust174" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 405, 291 )
+rotation = 0.198353
+
+[node name="Dust175" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 415, 313 )
+rotation = 0.198353
+
+[node name="Dust176" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 520, 322 )
+rotation = 0.198353
+
+[node name="Dust177" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 531, 348 )
+rotation = 0.198353
+
+[node name="Dust178" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 488, 339 )
+rotation = -2.55152
+
+[node name="Dust179" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 430, 295 )
+rotation = 0.198353
+
+[node name="Dust180" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 451, 299 )
+rotation = 0.198353
+
+[node name="Dust181" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 474, 301 )
+rotation = 0.198353
+
+[node name="Dust182" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 459, 322 )
+rotation = 0.198353
+
+[node name="Dust183" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 427, 338 )
+rotation = 0.198353
+
+[node name="Dust184" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 466, 346 )
+rotation = 0.198353
+
+[node name="Dust185" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 442, 321 )
+rotation = 0.198353
+
+[node name="Dust186" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 415, 201 )
+rotation = 0.198353
+
+[node name="Dust187" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 481, 204 )
+rotation = 0.198353
+
+[node name="Dust188" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 521, 299 )
+rotation = -2.55152
+
+[node name="Dust189" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 520, 249 )
+rotation = -2.55152
+
+[node name="Dust190" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 493, 230 )
+rotation = 0.198353
+
+[node name="Dust191" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 446, 220 )
+rotation = 0.198353
+
+[node name="Dust192" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 471, 233 )
+rotation = 0.198353
+
+[node name="Dust193" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 494, 235 )
+rotation = 0.198353
+
+[node name="Dust194" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 479, 256 )
+rotation = 0.198353
+
+[node name="Dust195" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 444, 276 )
+rotation = 0.198353
+
+[node name="Dust196" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 486, 280 )
+rotation = 0.198353
+
+[node name="Dust197" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 459, 259 )
+rotation = 0.198353
+
+[node name="Dust198" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 501, 258 )
+rotation = -2.55152
+
+[node name="Dust199" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 501, 323 )
+rotation = -2.55152
+
+[node name="Dust200" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 506, 280 )
+rotation = -2.55152
+
+[node name="Dust201" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 474, 363 )
+rotation = -2.55152
+
+[node name="Dust202" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 498, 303 )
+rotation = 0.198353
+
+[node name="Dust203" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 444, 347 )
+rotation = -2.55152
+
+[node name="Dust204" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 466, 280 )
+rotation = 0.198353
+
+[node name="Dust205" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 459, 206 )
+rotation = 0.198353
+
+[node name="Dust206" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 492, 362 )
+rotation = -2.55152
+
+[node name="Dust207" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 451, 299 )
+rotation = 0.198353
+
+[node name="Dust208" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 474, 301 )
+rotation = 0.198353
+
+[node name="Dust209" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 459, 322 )
+rotation = 0.198353
+
+[node name="Dust210" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 466, 346 )
+rotation = 0.198353
+
+[node name="Dust211" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 481, 204 )
+rotation = 0.198353
+
+[node name="Dust212" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 526, 365 )
+rotation = -2.55152
+
+[node name="Dust213" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 509, 344 )
+rotation = -2.55152
+
+[node name="Dust214" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 511, 366 )
+rotation = -2.55152
+
+[node name="Dust215" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 507, 220 )
+rotation = -2.55152
+
+[node name="Dust216" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 531, 278 )
+rotation = 0.198353
+
+[node name="Dust217" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 547, 258 )
+rotation = 0.198353
+
+[node name="Dust218" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 611, 204 )
+rotation = 0.198353
+
+[node name="Dust219" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 613, 250 )
+rotation = 0.198353
+
+[node name="Dust220" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 501, 258 )
+rotation = -2.55152
+
+[node name="Dust221" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 525, 258 )
+rotation = -2.55152
+
+[node name="Dust222" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 478, 317 )
+rotation = -2.55152
+
+[node name="Dust223" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 498, 303 )
+rotation = 0.198353
+
+[node name="Dust224" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 520, 322 )
+rotation = 0.198353
+
+[node name="Dust225" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 531, 348 )
+rotation = 0.198353
+
+[node name="Dust226" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 488, 339 )
+rotation = -2.55152
+
+[node name="Dust227" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 521, 299 )
+rotation = -2.55152
+
+[node name="Dust228" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 535, 204 )
+rotation = -2.55152
+
+[node name="Dust229" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 542, 239 )
+rotation = 0.198353
+
+[node name="Dust230" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 545, 219 )
+rotation = 0.198353
+
+[node name="Dust231" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 613, 230 )
+rotation = 0.198353
+
+[node name="Dust232" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 611, 277 )
+rotation = 0.198353
+
+[node name="Dust233" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 501, 258 )
+rotation = -2.55152
+
+[node name="Sprite" parent="Dusts/Dust233" index="0"]
+position = Vector2( -66.8361, 2.63449 )
+
+[node name="CollisionShape2D" parent="Dusts/Dust233" index="1"]
+position = Vector2( -72.4003, -5.67451 )
+
+[node name="Dust234" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 615, 327 )
+rotation = -2.55152
+
+[node name="Dust235" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 608, 372 )
+rotation = -2.55152
+
+[node name="Dust236" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 613, 306 )
+rotation = 0.198353
+
+[node name="Dust237" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 492, 362 )
+rotation = -2.55152
+
+[node name="Dust238" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 526, 365 )
+rotation = -2.55152
+
+[node name="Dust239" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 509, 344 )
+rotation = -2.55152
+
+[node name="Dust240" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 511, 366 )
+rotation = -2.55152
+
+[node name="Dust241" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 524, 204 )
+rotation = -2.55152
+
+[node name="Dust242" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 522, 230 )
+rotation = 0.198353
+
+[node name="Dust243" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 551, 236 )
+rotation = 0.198353
+
+[node name="Dust244" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 543, 281 )
+rotation = 0.198353
+
+[node name="Dust245" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 558, 259 )
+rotation = -2.55152
+
+[node name="Dust246" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 582, 259 )
+rotation = -2.55152
+
+[node name="Dust247" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 554, 201 )
+rotation = -2.55152
+
+[node name="Dust248" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 555, 304 )
+rotation = 0.198353
+
+[node name="Dust249" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 577, 323 )
+rotation = 0.198353
+
+[node name="Dust250" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 588, 349 )
+rotation = 0.198353
+
+[node name="Dust251" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 545, 340 )
+rotation = -2.55152
+
+[node name="Dust252" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 578, 300 )
+rotation = -2.55152
+
+[node name="Dust253" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 577, 250 )
+rotation = -2.55152
+
+[node name="Dust254" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 550, 231 )
+rotation = 0.198353
+
+[node name="Dust255" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 551, 236 )
+rotation = 0.198353
+
+[node name="Dust256" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 597, 202 )
+rotation = 0.198353
+
+[node name="Dust257" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 558, 259 )
+rotation = -2.55152
+
+[node name="Dust258" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 558, 324 )
+rotation = -2.55152
+
+[node name="Dust259" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 563, 281 )
+rotation = -2.55152
+
+[node name="Dust260" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 555, 304 )
+rotation = 0.198353
+
+[node name="Dust261" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 549, 363 )
+rotation = -2.55152
+
+[node name="Dust262" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 583, 366 )
+rotation = -2.55152
+
+[node name="Dust263" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 566, 345 )
+rotation = -2.55152
+
+[node name="Dust264" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 568, 367 )
+rotation = -2.55152
+
+[node name="Dust265" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 564, 221 )
+rotation = -2.55152
+
+[node name="Dust266" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 588, 279 )
+rotation = 0.198353
+
+[node name="Dust267" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 604, 259 )
+rotation = 0.198353
+
+[node name="Dust268" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 600, 335 )
+rotation = 0.198353
+
+[node name="Dust269" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 558, 259 )
+rotation = -2.55152
+
+[node name="Dust270" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 582, 259 )
+rotation = -2.55152
+
+[node name="Dust271" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 555, 304 )
+rotation = 0.198353
+
+[node name="Dust272" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 577, 323 )
+rotation = 0.198353
+
+[node name="Dust273" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 588, 349 )
+rotation = 0.198353
+
+[node name="Dust274" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 545, 340 )
+rotation = -2.55152
+
+[node name="Dust275" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 578, 300 )
+rotation = -2.55152
+
+[node name="Dust276" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 600, 294 )
+rotation = -2.55152
+
+[node name="Dust277" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 599, 240 )
+rotation = 0.198353
+
+[node name="Dust278" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 602, 220 )
+rotation = 0.198353
+
+[node name="Dust279" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 597, 317 )
+rotation = 0.198353
+
+[node name="Dust280" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 558, 259 )
+rotation = -2.55152
+
+[node name="Dust281" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 558, 324 )
+rotation = -2.55152
+
+[node name="Dust282" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 563, 281 )
+rotation = -2.55152
+
+[node name="Dust283" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 539, 309 )
+rotation = 0.198353
+
+[node name="Dust284" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 549, 363 )
+rotation = -2.55152
+
+[node name="Dust285" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 583, 366 )
+rotation = -2.55152
+
+[node name="Dust286" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 566, 345 )
+rotation = -2.55152
+
+[node name="Dust287" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 568, 367 )
+rotation = -2.55152
+
+[node name="Dust288" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 581, 205 )
+rotation = -2.55152
+
+[node name="Dust289" parent="Dusts" instance=ExtResource( 3 )]
+position = Vector2( 578, 233 )
+rotation = 0.198353
+
+[node name="Rumba" parent="." instance=ExtResource( 2 )]
+position = Vector2( 126, 292 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 19, 300 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 701, 299 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 371, 537 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 390, 130 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 528.188, 425.25 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 385, 381 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 189.5, 381 )
+shape = SubResource( 7 )
+
+[editable path="Dusts/Dust"]
+[editable path="Dusts/Dust8"]
+[editable path="Dusts/Dust15"]
+[editable path="Dusts/Dust22"]
+[editable path="Dusts/Dust46"]
+[editable path="Dusts/Dust53"]
+[editable path="Dusts/Dust60"]
+[editable path="Dusts/Dust84"]
+[editable path="Dusts/Dust93"]
+[editable path="Dusts/Dust102"]
+[editable path="Dusts/Dust117"]
+[editable path="Dusts/Dust131"]
+[editable path="Dusts/Dust144"]
+[editable path="Dusts/Dust156"]
+[editable path="Dusts/Dust163"]
+[editable path="Dusts/Dust179"]
+[editable path="Dusts/Dust187"]
+[editable path="Dusts/Dust191"]
+[editable path="Dusts/Dust198"]
+[editable path="Dusts/Dust211"]
+[editable path="Dusts/Dust220"]
+[editable path="Dusts/Dust233"]
+[editable path="Dusts/Dust245"]
+[editable path="Dusts/Dust257"]
+[editable path="Dusts/Dust269"]
+[editable path="Dusts/Dust280"]
