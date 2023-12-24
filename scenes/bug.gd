@@ -25,7 +25,11 @@ func _physics_process(_delta: float) -> void:
 	motion = move_and_slide(motion * _movespeed)
 	
 	sprite.rotation = -motion.angle_to(Vector2.UP)
-	sprite.playing = motion.abs().x > 0 or motion.abs().y > 0
+	
+	if sprite.animation == "moving":
+		sprite.playing = motion.abs().x > 0 or motion.abs().y > 0
+	if sprite.animation == "triggering":
+		sprite.playing = true
 
 func _process(delta: float) -> void:
 	if _is_dazzled:
@@ -34,8 +38,10 @@ func _process(delta: float) -> void:
 func dazzle():
 	last_motion = Vector2.ZERO
 	_is_dazzled = true
+	sprite.animation = "triggering"
 	print("dazzled")
 	
 func undazzle():
 	_is_dazzled = false
+	sprite.animation = "moving"
 	print("undazzled")

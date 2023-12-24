@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/images/circuit.png" type="Texture" id=1]
 [ext_resource path="res://scenes/bug.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/conducted_place.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/circuit.gd" type="Script" id=4]
+[ext_resource path="res://assets/glitch_shader.tres" type="Shader" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.5, 32 )
@@ -20,7 +22,7 @@ extents = Vector2( 28.5, 36.375 )
 extents = Vector2( 29.3125, 33.625 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 84.5, 98.5 )
+extents = Vector2( 72, 87.5 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 41.5, 41 )
@@ -41,11 +43,63 @@ extents = Vector2( 65, 210 )
 extents = Vector2( 37.5625, 217.625 )
 
 [sub_resource type="OccluderPolygon2D" id=14]
-polygon = PoolVector2Array( 8, 58, 4, 58, 1, 55, 1, 4, 4, 1, 57, 1, 61, 5, 61, 56, 58, 58 )
+polygon = PoolVector2Array( 8, 58, 4.35464, 58.1, 1.01379, 54.3137, 1, 4, 4, 1, 57, 1, 61, 5, 61, 56, 57.8085, 58.1 )
+
+[sub_resource type="OccluderPolygon2D" id=19]
+polygon = PoolVector2Array( -68, 86, -68, 163, -71, 167, -134, 167, -137, 163, -137, 86, -134, 83, -71.3899, 82.844 )
+
+[sub_resource type="OccluderPolygon2D" id=20]
+polygon = PoolVector2Array( -155, 159, -158, 163, -238, 163, -242, 160, -241.986, 81.4552, -238.365, 77.8835, -158.201, 78.0322, -154.828, 81.6039 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "lights_trigger"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 2.23402e-05, 2.23402e-05, 5.13242e-05, 5.13242e-05, 5.13242e-05, 5.13242e-05, 5.13242e-05 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 0.929412, 0.470588, 1 ), Color( 0, 0, 0, 1 ), Color( 0.866667, 0.921569, 0.364706, 1 ), Color( 0, 0, 0, 1 ), Color( 0.921569, 0.811765, 0.211765, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Shader" id=17]
+code = "shader_type canvas_item;
+uniform float update_interval = .04;
+uniform float static_granularity = .001;
+uniform float noise_alpha = .025;
+
+
+float generate_random_static (in float size, in float interval, in vec2 uv){
+	float time_step = TIME - mod(TIME,interval);
+	vec2 uv_step = uv - mod(uv, size);
+	return fract(sin(dot(uv_step,vec2(12.0278*sin(time_step),15.0905)))*43758.5453);
+}
+
+void fragment() {
+	vec3 static_plot = vec3(generate_random_static(static_granularity,update_interval,UV));
+	COLOR = vec4(static_plot, noise_alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id=18]
+shader = SubResource( 17 )
+shader_param/update_interval = 0.04
+shader_param/static_granularity = 0.001
+shader_param/noise_alpha = 0.025
+
+[sub_resource type="ShaderMaterial" id=16]
+shader = ExtResource( 5 )
+shader_param/AMT = 0.0
+shader_param/SPEED = 0.6
 
 [node name="CircuitMap" type="Sprite"]
 position = Vector2( 281, 178 )
 texture = ExtResource( 1 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 356.0 ],
 "_edit_vertical_guides_": [ 560.0 ]
@@ -58,62 +112,104 @@ scale = Vector2( 0.5, 0.5 )
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0, 0, 0, 1 )
 
-[node name="ConductedPlace" parent="." instance=ExtResource( 3 )]
-position = Vector2( 237, 116 )
-
 [node name="Collissions" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( -231.5, -89 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( -175.125, 1.5 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( -112, -153 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( -18.5, -58.375 )
 shape = SubResource( 8 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( 61.6875, -129.625 )
 shape = SubResource( 9 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Collissions"]
-position = Vector2( 191.5, -55.5 )
+visible = false
+position = Vector2( 194, -55.5 )
 shape = SubResource( 10 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( -197.5, 121 )
 shape = SubResource( 11 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( -101.688, 124.375 )
 shape = SubResource( 12 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( 30.5, 29 )
 shape = SubResource( 13 )
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( 29.5, -198 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( -344, 24 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( -4, 196 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Collissions"]
+visible = false
 position = Vector2( 318.438, -7.375 )
 shape = SubResource( 5 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Collissions"]
 occluder = SubResource( 14 )
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Collissions"]
+occluder = SubResource( 19 )
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Collissions"]
+occluder = SubResource( 20 )
+
+[node name="ConductedPlaces" type="Node2D" parent="."]
+
+[node name="ConductedPlace" parent="ConductedPlaces" instance=ExtResource( 3 )]
+position = Vector2( 237, 116 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/lights_trigger = SubResource( 15 )
+
+[node name="GranulateShader" type="ColorRect" parent="."]
+material = SubResource( 18 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -280.0
+margin_top = -178.0
+margin_right = -280.0
+margin_bottom = -178.0
+
+[node name="GlitchShader" type="ColorRect" parent="."]
+material = SubResource( 16 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -280.0
+margin_top = -178.0
+margin_right = -280.0
+margin_bottom = -178.0
