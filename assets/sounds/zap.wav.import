@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/buzz.wav-5457220e2c278ef5ded7846aab9a8168.sample"
+path="res://.import/zap.wav-e83973a7069184b26b85448befe3423b.sample"
 
 [deps]
 
-source_file="res://assets/sounds/buzz.wav"
-dest_files=[ "res://.import/buzz.wav-5457220e2c278ef5ded7846aab9a8168.sample" ]
+source_file="res://assets/sounds/zap.wav"
+dest_files=[ "res://.import/zap.wav-e83973a7069184b26b85448befe3423b.sample" ]
 
 [params]
 

@@ -4,10 +4,10 @@ export var _movespeed: = 140.0
 
 var input_vector = Vector2.ZERO
 var last_motion: = Vector2()
-var _is_dazzled = false
+var _is_zapped = false
 
 onready var sprite = $AnimatedSprite
-onready var buzz_player = $AudioStreamPlayer2D
+onready var zap_player = $AudioStreamPlayer2D
 
 func _physics_process(_delta: float) -> void:
 	var motion = last_motion
@@ -32,13 +32,13 @@ func _physics_process(_delta: float) -> void:
 	if sprite.animation == "triggering":
 		sprite.playing = true
 
-func dazzle():
+func zap():
 	last_motion = Vector2.ZERO
-	_is_dazzled = true
+	_is_zapped = true
 	sprite.animation = "triggering"
-	buzz_player.play()
+	zap_player.play()
 	
-func undazzle():
-	_is_dazzled = false
+func unzap():
+	_is_zapped = false
 	sprite.animation = "moving"
-	buzz_player.stop()
+	zap_player.stop()

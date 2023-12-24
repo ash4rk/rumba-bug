@@ -313,56 +313,58 @@ margin_top = -400.5
 margin_right = -280.0
 margin_bottom = -400.5
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="DarkLights" type="Node2D" parent="."]
+
+[node name="Light2D" type="Light2D" parent="DarkLights"]
 position = Vector2( -238.458, 212.213 )
 scale = Vector2( 0.289237, 0.269223 )
 texture = ExtResource( 6 )
 energy = 4.11
 mode = 1
 
-[node name="Light2D2" type="Light2D" parent="."]
+[node name="Light2D2" type="Light2D" parent="DarkLights"]
 position = Vector2( -149.262, 180.593 )
 scale = Vector2( 0.289237, 0.269223 )
 texture = ExtResource( 6 )
 energy = 4.11
 mode = 1
 
-[node name="Light2D3" type="Light2D" parent="."]
+[node name="Light2D3" type="Light2D" parent="DarkLights"]
 position = Vector2( -73.0441, 213.629 )
 scale = Vector2( 0.192453, 0.201013 )
 texture = ExtResource( 6 )
 energy = 4.11
 mode = 1
 
-[node name="Light2D4" type="Light2D" parent="."]
+[node name="Light2D4" type="Light2D" parent="DarkLights"]
 position = Vector2( -298.63, 327.602 )
 scale = Vector2( 0.192453, 0.37338 )
 texture = ExtResource( 6 )
 energy = 4.11
 mode = 1
 
-[node name="Light2D5" type="Light2D" parent="."]
+[node name="Light2D5" type="Light2D" parent="DarkLights"]
 position = Vector2( -177.973, 437.986 )
 scale = Vector2( 0.565763, 0.272554 )
 texture = ExtResource( 6 )
 energy = 4.11
 mode = 1
 
-[node name="Light2D6" type="Light2D" parent="."]
+[node name="Light2D6" type="Light2D" parent="DarkLights"]
 position = Vector2( 169.113, 431.371 )
 scale = Vector2( 0.565763, 0.210476 )
 texture = ExtResource( 6 )
 energy = 4.11
 mode = 1
 
-[node name="Light2D8" type="Light2D" parent="."]
+[node name="Light2D8" type="Light2D" parent="DarkLights"]
 position = Vector2( 19.7284, 434.02 )
 scale = Vector2( 0.565763, 0.210476 )
 texture = ExtResource( 6 )
 energy = 4.11
 mode = 1
 
-[node name="Light2D7" type="Light2D" parent="."]
+[node name="Light2D7" type="Light2D" parent="DarkLights"]
 position = Vector2( 325.507, 341.761 )
 scale = Vector2( 0.28555, 0.393659 )
 texture = ExtResource( 6 )

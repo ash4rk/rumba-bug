@@ -31,7 +31,7 @@ tracks/0/keys = {
 }
 
 [node name="ConductedPlace" type="Node2D"]
-scale = Vector2( 0.2998, 0.2998 )
+scale = Vector2( 0.267962, 0.267962 )
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
