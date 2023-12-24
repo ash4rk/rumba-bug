@@ -9,7 +9,7 @@ func _ready() -> void:
 		i.connect("emitted", room.rumba, "on_conductor_emmited",[i.direction])
 		i.connect("emit_stopped", room.rumba, "on_conductor_emit_stopped")
 	CircuitEvents.dust_progress_bar = dust_progress_bar
-	CircuitEvents.connect("win", self, "_on_win_condition")
+	var _c = CircuitEvents.connect("win", self, "_on_win_condition")
 	
 func _on_win_condition() -> void:
 	$AnimationPlayer.play("win")
