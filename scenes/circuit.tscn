@@ -193,6 +193,21 @@ occluder = SubResource( 20 )
 [node name="ConductedPlace" parent="ConductedPlaces" instance=ExtResource( 3 )]
 position = Vector2( 237, 116 )
 
+[node name="ConductedPlace2" parent="ConductedPlaces" instance=ExtResource( 3 )]
+position = Vector2( -118.433, -28.3483 )
+
+[node name="ConductedPlace3" parent="ConductedPlaces" instance=ExtResource( 3 )]
+position = Vector2( -20.7887, 35.9077 )
+direction = "down"
+
+[node name="ConductedPlace4" parent="ConductedPlaces" instance=ExtResource( 3 )]
+position = Vector2( -190.878, 63.626 )
+direction = "up"
+
+[node name="ConductedPlace5" parent="ConductedPlaces" instance=ExtResource( 3 )]
+position = Vector2( -133.552, -89.4545 )
+direction = "left"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/lights_trigger = SubResource( 15 )
 

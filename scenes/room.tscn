@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/images/interioir.png" type="Texture" id=1]
 [ext_resource path="res://scenes/rumba.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/dust.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/room.gd" type="Script" id=4]
 
 [sub_resource type="TileSet" id=1]
 1/name = "interioir.png 1"
@@ -179,6 +180,7 @@ extents = Vector2( 47, 3 )
 extents = Vector2( 93.5, 3 )
 
 [node name="Room" type="Node2D"]
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 480.0, 96.0 ],
 "_edit_vertical_guides_": [ 630.0, 91.0 ]

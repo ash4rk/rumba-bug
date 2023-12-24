@@ -3,6 +3,8 @@ extends Sprite
 signal emitted
 signal emit_stopped
 
+export var direction: String = "right"
+
 onready var sparkles = $CPUParticles2D
 
 func _on_Area2D_body_entered(body: Node) -> void:
