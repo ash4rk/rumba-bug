@@ -32,7 +32,6 @@ func _physics_process(_delta: float) -> void:
 	motion = motion.normalized()
 	motion = move_and_slide(motion * _movespeed)
 
-
 func on_conductor_emmited(direction: String):
 	move_direction = direction
 

@@ -21,7 +21,7 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
-limit_left = 91
+limit_left = 90
 limit_top = 96
 limit_right = 630
 limit_bottom = 480

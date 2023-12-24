@@ -1,6 +1,7 @@
 extends Sprite
 
 onready var conducted_places = $ConductedPlaces
+onready var canvas_modulate = $CanvasModulate
 onready var anim_player = $AnimationPlayer
 onready var glitch_shader = $GlitchShader
 

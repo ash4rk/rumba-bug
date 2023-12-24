@@ -7,6 +7,7 @@ var last_motion: = Vector2()
 var _is_dazzled = false
 
 onready var sprite = $AnimatedSprite
+onready var buzz_player = $AudioStreamPlayer2D
 
 func _physics_process(_delta: float) -> void:
 	var motion = last_motion
@@ -35,7 +36,9 @@ func dazzle():
 	last_motion = Vector2.ZERO
 	_is_dazzled = true
 	sprite.animation = "triggering"
+	buzz_player.play()
 	
 func undazzle():
 	_is_dazzled = false
 	sprite.animation = "moving"
+	buzz_player.stop()

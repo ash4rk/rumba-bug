@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/circuit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://assets/monogram.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/sounds/bug_song.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/collect_sound.wav" type="AudioStream" id=6]
 
 [sub_resource type="Curve" id=8]
 min_value = -200.0
@@ -62,40 +64,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VC" type="ViewportContainer" parent="HBox"]
-margin_right = 510.0
-margin_bottom = 600.0
+margin_right = 1276.0
+margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="HBox/VC"]
-size = Vector2( 510, 600 )
+size = Vector2( 1276, 720 )
 handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="CircuitMap" parent="HBox/VC/Viewport" instance=ExtResource( 2 )]
 
 [node name="SecondScreen" type="Control" parent="HBox"]
-margin_left = 514.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = 1280.0
+margin_right = 1280.0
+margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 
 [node name="VC2" type="ViewportContainer" parent="HBox/SecondScreen"]
-margin_left = 4.0
-margin_right = 512.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch = true
 
 [node name="Viewport" type="Viewport" parent="HBox/SecondScreen/VC2"]
-size = Vector2( 508, 600 )
+size = Vector2( 0, 720 )
 handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Room" parent="HBox/SecondScreen/VC2/Viewport" instance=ExtResource( 1 )]
+__meta__ = {
+"_edit_horizontal_guides_": [ 480.0, 96.0 ],
+"_edit_vertical_guides_": [ 630.0, 91.0 ]
+}
 
 [node name="Confetti" type="CPUParticles2D" parent="HBox/SecondScreen/VC2/Viewport"]
 emitting = false
@@ -125,7 +131,6 @@ custom_fonts/font = SubResource( 1 )
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 step = 0.1
-value = 33.0
 
 [node name="WinScreen" type="Control" parent="HBox/SecondScreen"]
 visible = false
@@ -161,3 +166,13 @@ for GameDEVils JAM 2023"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/win = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -23.362
+pitch_scale = 0.85
+autoplay = true
+
+[node name="CollectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+pitch_scale = 10.0

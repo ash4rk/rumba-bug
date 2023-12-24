@@ -1,6 +1,7 @@
 extends Node
 
 signal win
+signal collected
 
 var dust_overall: int = 100 setget _set_dust_overall
 var dust_cleaned: int = 0 setget _set_dust_cleaned
@@ -12,6 +13,7 @@ func _set_dust_overall(new_value):
 
 func _set_dust_cleaned(new_value):
 	dust_cleaned = new_value
+	emit_signal("collected")
 	_update_dust_pb()
 	_check_win_condition()
 
